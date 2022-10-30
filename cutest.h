@@ -148,13 +148,47 @@ equalbool(bool expected, bool given) {
 }
 
 
-/* Asserts */
+void 
+isnull_(void *given) {
+    SUCCESS(given == NULL);
 
+    /* Error */
+    FAILED();
+    EXPECTED();
+    pdataln("NULL");
+
+    GIVEN();
+    pdataln("%p", given);
+
+    exit(EXIT_FAILURE);
+}
+
+
+void 
+isnotnull_(void *given) {
+    SUCCESS(given != NULL);
+
+    /* Error */
+    FAILED();
+    EXPECTED();
+    pdataln("Not NULL");
+
+    GIVEN();
+    pdataln("NULL");
+
+    exit(EXIT_FAILURE);
+}
+
+
+/* Asserts */
 #define assert(f, ...) \
     pcolor(CYAN, "%s:%d", __FILE__, __LINE__); \
     pcolor(MAGENTA, " [%s] ", __func__); \
     f(__VA_ARGS__)
 
+
+#define isnull(...) assert(isnull_, __VA_ARGS__)
+#define isnotnull(...) assert(isnotnull_, __VA_ARGS__)
 #define eqchr(...) assert(equalchr, __VA_ARGS__)
 #define eqstr(...) assert(equalstr, __VA_ARGS__)
 #define eqnstr(...) assert(equalnstr, __VA_ARGS__)

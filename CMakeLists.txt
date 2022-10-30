@@ -1,20 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(cutest 
-    VERSION 1.0.0
+    VERSION 1.1.0
     LANGUAGES C
 )
-
-
-# configure_file(manifest.h.in manifest.h)
-
-
-# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_GNU_SOURCE=1")
-
-
-# include_directories(
-#     ${PROJECT_SOURCE_DIR}
-#     ${PROJECT_BINARY_DIR}
-# )
 
 
 # Install
