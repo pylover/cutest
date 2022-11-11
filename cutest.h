@@ -197,7 +197,7 @@ isnotnull_(void *given) {
 #define istrue(e) assert(equalbool, true, (e))
 #define isfalse(e) assert(equalbool, false, (e))
 #define eqbin(e, g, l) \
-    assert(equalbin, (unsigned char*)g, (unsigned char*)e, l)
+    assert(equalbin, (unsigned char*)e, (unsigned char*)g, l)
 
 
 #endif
