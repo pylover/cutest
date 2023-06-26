@@ -41,7 +41,7 @@
 #define GIVEN() pcolor(YELLOW, "Given: ")
 
 
-static void 
+static void
 printbinary(const unsigned char *buf, int buflen) {
     int i;
     for (i = 0; i < buflen; i++){
@@ -51,8 +51,8 @@ printbinary(const unsigned char *buf, int buflen) {
 }
 
 
-void 
-equalbin(const unsigned char *expected, const unsigned char *given, 
+void
+equalbin(const unsigned char *expected, const unsigned char *given,
         uint32_t len) {
     SUCCESS(memcmp(given, expected, len) == 0);
 
@@ -68,7 +68,7 @@ equalbin(const unsigned char *expected, const unsigned char *given,
 }
 
 
-void 
+void
 equalchr(const char expected, const char given) {
     SUCCESS(given == expected);
 
@@ -84,7 +84,7 @@ equalchr(const char expected, const char given) {
 }
 
 
-void 
+void
 equalstr(const char *expected, const char *given) {
     SUCCESS(strcmp(given, expected) == 0);
 
@@ -100,7 +100,7 @@ equalstr(const char *expected, const char *given) {
 }
 
 
-void 
+void
 equalnstr(const char *expected, const char *given, u_int32_t len) {
     SUCCESS(strncmp(given, expected, len) == 0);
 
@@ -116,7 +116,7 @@ equalnstr(const char *expected, const char *given, u_int32_t len) {
 }
 
 
-void 
+void
 equalint(int expected, int given) {
     SUCCESS(given == expected);
 
@@ -132,7 +132,7 @@ equalint(int expected, int given) {
 }
 
 
-void 
+void
 equalbool(bool expected, bool given) {
     SUCCESS(given == expected);
 
@@ -148,8 +148,8 @@ equalbool(bool expected, bool given) {
 }
 
 
-void 
-isnull_(void *given) {
+void
+isnull_(const void *given) {
     SUCCESS(given == NULL);
 
     /* Error */
@@ -164,8 +164,8 @@ isnull_(void *given) {
 }
 
 
-void 
-isnotnull_(void *given) {
+void
+isnotnull_(const void *given) {
     SUCCESS(given != NULL);
 
     /* Error */
