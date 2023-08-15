@@ -38,7 +38,7 @@
 
 
 #define pcolor(c_, f_, ...) \
-    printf(c_); \  // NOLINT
+    printf(c_); \
     printf((f_), ##__VA_ARGS__); \
     printf(CLR)  // NOLINT
 
