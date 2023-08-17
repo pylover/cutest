@@ -120,6 +120,22 @@ equalstr(const char *expected, const char *given) {
 
 
 void
+equalptr(const void *expected, const void *given) {
+    SUCCESS(given == expected);
+
+    /* Error */
+    FAILED();
+    EXPECTED();
+    pdataln("%p", expected);
+
+    GIVEN();
+    pdataln("%p", given);
+
+    exit(EXIT_FAILURE);
+}
+
+
+void
 equalnstr(const char *expected, const char *given, u_int32_t len) {
     SUCCESS(strncmp(given, expected, len) == 0);
 
@@ -212,6 +228,7 @@ isnotnull_(const void *given) {
 #define eqstr(...) assert(equalstr, __VA_ARGS__)
 #define eqnstr(...) assert(equalnstr, __VA_ARGS__)
 #define eqint(...) assert(equalint, __VA_ARGS__)
+#define eqptr(...) assert(equalptr, __VA_ARGS__)
 #define eqbool(...) assert(equalbool, __VA_ARGS__)
 #define istrue(e) assert(equalbool, true, (e))
 #define isfalse(e) assert(equalbool, false, (e))
