@@ -152,7 +152,7 @@ equalnstr(const char *expected, const char *given, u_int32_t len) {
 
 
 void
-equalint(int expected, int given) {
+equalint(const int expected, const int given) {
     SUCCESS(given == expected);
 
     /* Error */
@@ -168,7 +168,7 @@ equalint(int expected, int given) {
 
 
 void
-equalbool(bool expected, bool given) {
+equalbool(const bool expected, const bool given) {
     SUCCESS(given == expected);
 
     /* Error */
