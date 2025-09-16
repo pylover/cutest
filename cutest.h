@@ -39,7 +39,7 @@
 
 #define pcolor(c_, f_, ...) \
     printf(c_); \
-    printf((f_), ##__VA_ARGS__); \
+    printf(f_, ##__VA_ARGS__); \
     printf(CLR)  // NOLINT
 
 
@@ -105,7 +105,7 @@ equalchr(const char expected, const char given) {
 
 void
 equalstr(const char *expected, const char *given) {
-    SUCCESS(strcmp(given, expected) == 0);
+    SUCCESS(expected && given && (strcmp(given, expected) == 0));
 
     /* Error */
     FAILED();
