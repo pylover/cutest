@@ -72,7 +72,7 @@ printbinary(const unsigned char *buf, int buflen) {
 
 void
 equalbin(const unsigned char *expected, const unsigned char *given,
-        uint32_t len) {
+        size_t len) {
     SUCCESS(memcmp(given, expected, len) == 0);
 
     /* Error */
@@ -136,7 +136,7 @@ equalptr(const void *expected, const void *given) {
 
 
 void
-equalnstr(const char *expected, const char *given, u_int32_t len) {
+equalnstr(const char *expected, const char *given, size_t len) {
     SUCCESS(strncmp(given, expected, len) == 0);
 
     /* Error */
